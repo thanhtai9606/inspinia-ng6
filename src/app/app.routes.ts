@@ -6,6 +6,7 @@ import {RegisterComponent} from "./views/register/register.component";
 import {BlankComponent} from "./components/common/layouts/blank/blank.component";
 import {BasicComponent} from "./components/common/layouts/basic/basic.component";
 
+import {DashboardV1Component} from './views/dashboard-v1/dashboard-v1.component';
 
 export const ROUTES:Routes = [
   // Main redirect
@@ -16,7 +17,8 @@ export const ROUTES:Routes = [
     path: '', component: BasicComponent,
     children: [
       {path: 'mainView', component: MainViewComponent},
-      {path: 'minorView', component: MinorViewComponent}
+      {path: 'minorView', component: MinorViewComponent},
+      {path: 'dashboardv1View', component: DashboardV1Component}
     ]
   },
   {
