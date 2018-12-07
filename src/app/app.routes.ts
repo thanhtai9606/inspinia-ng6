@@ -5,9 +5,9 @@ import {LoginComponent} from "./views/login/login.component";
 import {RegisterComponent} from "./views/register/register.component";
 import {BlankComponent} from "./components/common/layouts/blank/blank.component";
 import {BasicComponent} from "./components/common/layouts/basic/basic.component";
-
-import {DashboardV1Component} from './views/dashboard-v1/dashboard-v1.component';
-
+import {BasedashComponent} from './dashboards/basedash/basedash.component';
+import {Dashv2Component} from './dashboards/dashv2/dashv2.component';
+import { Dashv1Component } from './dashboards/dashv1/dashv1.component';
 export const ROUTES:Routes = [
   // Main redirect
   {path: '', redirectTo: 'mainView', pathMatch: 'full'},
@@ -18,7 +18,15 @@ export const ROUTES:Routes = [
     children: [
       {path: 'mainView', component: MainViewComponent},
       {path: 'minorView', component: MinorViewComponent},
-      {path: 'dashboardv1View', component: DashboardV1Component}
+      {
+        path:'dashboardsView',component:BasedashComponent        
+      },  
+      {
+        path:'dash1View',component:Dashv1Component        
+      },
+      {
+        path:'dash2View',component:Dashv2Component        
+      }
     ]
   },
   {
@@ -31,4 +39,5 @@ export const ROUTES:Routes = [
 
   // Handle all other routes
   {path: '**',    component: MainViewComponent }
+ 
 ];

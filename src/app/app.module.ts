@@ -11,15 +11,13 @@ import {LoginModule} from "./views/login/login.module";
 import {RegisterModule} from "./views/register/register.module";
 import { LayoutsModule } from './components/common/layouts/layouts.module';
 import {ROUTES} from './app.routes';
-import { DashboardV1Component } from './views/dashboard-v1/dashboard-v1.component';
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {DashboardsModule} from './dashboards/dashboards.module'
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DashboardV1Component
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +31,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
     //Modules
     LayoutsModule,
+    DashboardsModule,
     ToastrModule.forRoot({
       timeOut:3000,
       positionClass:'toast-top-right',
@@ -43,8 +42,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
-    {provide: LocationStrategy, useClass: HashLocationStrategy},
-    //{provide:ToastOptions,useClass:CustomOption}
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

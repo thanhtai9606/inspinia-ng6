@@ -8,7 +8,7 @@
  */
 
 declare var jQuery:any;
-
+declare let $:any;
 export function correctHeight() {
 
   var pageWrapper = jQuery('#page-wrapper');
@@ -43,6 +43,37 @@ export function detectBody() {
     jQuery('body').removeClass('body-small')
   }
 }
+// For demo purpose - animation css script
+export function animationHover(element, animation) {
+    element = $(element);
+    element.hover(
+        function () {
+            element.addClass('animated ' + animation);
+        },
+        function () {
+            //wait for animation to finish before removing classes
+            window.setTimeout(function () {
+                element.removeClass('animated ' + animation);
+            }, 2000);
+        });
+}
+ // Dragable panels
+export function WinMove() {
+    var element = "[class*=col]";
+    var handle = ".ibox-title";
+    var connect = "[class*=col]";
+    $(element).sortable(
+        {
+            handle: handle,
+            connectWith: connect,
+            tolerance: 'pointer',
+            forcePlaceholderSize: true,
+            opacity: 0.8
+        })
+        .disableSelection();
+}
+
+
 
 export function smoothlyMenu() {
   if (!jQuery('body').hasClass('mini-navbar') || jQuery('body').hasClass('body-small')) {
@@ -64,3 +95,8 @@ export function smoothlyMenu() {
     jQuery('#side-menu').removeAttr('style');
   }
 }
+// check if browser support HTML5 local storage
+export function localStorageSupport() {
+  return (('localStorage' in window) && window['localStorage'] !== null)
+}
+
